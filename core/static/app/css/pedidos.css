@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+ .container img{
+    width: 218px;
+    height: 328px;
+    margin-left: 435px;
+    float: right; margin: 0px 0px 15px 15px
+
+  
+}
+
+.img2 img{
+    width: 318px;
+    height: 318px;
+    margin-left: 135px;
+    
+}
+
+
