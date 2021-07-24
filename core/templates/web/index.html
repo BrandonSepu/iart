@@ -3,40 +3,85 @@
 {% load static %}
 {% block contenido %}
   
-  {% block css %}
-    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'app/css/index.css' %}">
-  {% endblock css %}
-    
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    {% endblock css %}
+    <!-- CARROUSEL-->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'app/img/Imagine Art.jpg' %}" class="d-block w-100" alt="atronauta">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'app/img/Imagine Art2.jpg' %}" class="d-block w-100" alt="leon">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'app/img/Imagine_Art3.png' %}" class="d-block w-100" alt="itachi">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- EXTRAS -->
+    <br>
     <div class="container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'app/img/astronauta.jpg' %}" class="d-block w-100" alt="atronauta">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'app/img/leon.jpg' %}" class="d-block w-100" alt="leon">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'app/img/itachi.jpg' %}" class="d-block w-100" alt="itachi">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="title-header text-center">
+                    <h4>Manufacture</h4>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </div>
+	</div>
+    <br>
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <img src="{% static 'app/img/IART_LOGO_WEB.png' %}" class="card-img-top" alt="...">
+            <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Dark card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+        </div>
+        <hr>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <img src="{% static 'app/img/IART_LOGO_WEB.png' %}" class="card-img-top" alt="...">
+            <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Dark card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <img src="{% static 'app/img/IART_LOGO_WEB.png' %}" class="card-img-top" alt="...">
+            <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Dark card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <img src="{% static 'app/img/IART_LOGO_WEB.png' %}" class="card-img-top" alt="...">
+            <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Dark card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
         </div>
     </div>
+    <br>
 {% endblock contenido %} 
         
         
