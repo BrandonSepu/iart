@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="logo">
-                    <a href="index.html" >  <img src="{% static 'app/img/IART_LOGO_WEB.png'  %}" alt="Home" width="50px" height="50px"></a>
+                    <a href="{% url 'index' %}" >  <img src="{% static 'app/img/IART_LOGO_WEB.png'  %}" alt="Home" width="50px" height="50px"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,7 +41,7 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Search Image" aria-label="Search">
                         <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
                 </div>
