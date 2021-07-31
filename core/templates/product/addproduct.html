@@ -1,0 +1,57 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block contenido %}
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    {% endblock css %}
+
+
+    <div class="text-center">
+        <form id="register-form" role="form" autocomplete="on" class="form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label bg-warning">Kind of Product</label>
+                    {{proForm.type}}
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label bg-warning">Description</label>
+                    {{proForm.description}}
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label bg-warning">Width  (cm)</label>
+                    {{proForm.ancho}}
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label bg-warning">Long (cm)</label>
+                    {{proForm.largo}}
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label bg-warning">$ Price $</label>
+                    {{proForm.price}}
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label bg-warning">Status</label>
+                    {{proForm.status}}
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label bg-warning">Product Image</label>
+                    {{proForm.img}}
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <input name="btnForget" class="btn btn-lg btn-warning btn-block btnForget" value="submit" type="submit">
+            </div>
+            <br>
+        </form>
+    </div>
+
+
+{% endblock contenido %} 

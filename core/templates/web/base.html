@@ -36,11 +36,31 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="{% url 'contact' %}"> Contact </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#"> Register/login </a>
-                        </li>
+                        
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'profile' %}"> Mi Cuenta: @{{ user.username }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'logout' %}">Salir</a>
+                            </li>
+                            {%if user.username == 'brandworkout' or user.username == 'imagineart'%}
+                                <li class="nav-item">
+                                    <a class="nav-link active bg-warning" href="{% url 'iart_admin' %}"> Admin </a>
+                                </li>
+                            {%endif%}
+                        {%else%}
+                            <li class="nav-item">
+                                <a class="nav-link active " href="{% url 'register' %}"> Register </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active " href="{% url 'login' %}"> login </a>
+                            </li>
+                        {% endif %}
+                        
                     </ul>
                     <form class="d-flex">
+                        
                         <input class="form-control me-2" type="search" placeholder="Search Image" aria-label="Search">
                         <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
@@ -93,7 +113,9 @@
                 ></a>
                 </section>
                 <!-- Section: Social media -->
-
+                <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'equipo' %}"> Equipo iArt </a>
+                        </li>
                 <!-- Section: Text -->
                 <section class="mb-4">
                 <p>

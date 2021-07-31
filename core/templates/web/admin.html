@@ -1,0 +1,109 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block contenido %}
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/admin.css' %}">
+        
+    {% endblock css %}
+
+    <div class="container">
+        <div class="row bg-warning">
+            <h2>Admin Menu Options</h2>
+        </div>
+        
+        <div class="row">
+        
+            <div class="col-md-6">       <!-- Standard button -->
+                <a href="{% url 'productcrud' %}">                
+                    <button type="button" class="btn btn-dark ribbon">LISTADO DE PRODUCTOS</button>
+                </a>
+                <a href="{% url 'contactcrud' %}">
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-warning ribbon">BANDEJA DE CONTACTO</button>
+                </a>
+                <a href="{% url 'usercrud' %}">
+                <!-- Indicates a successful or positive action -->
+                    <button type="button" class="btn btn-dark ribbon">LISTA DE USUARIOS</button>
+                </a>
+                <a href="{% url 'addproduct' %}">
+                <!-- Contextual button for informational alert messages -->
+                    <button type="button" class="btn btn-warning ribbon">LISTA DE PEDIDOS</button>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1TyKLnzrzvQDBubOgYisFIBGMAcYsHoby6q0e0haG0Cg/edit#gid=1810746359">
+                <!-- Indicates caution should be taken with this action -->
+                    <button type="button" class="btn btn-dark ribbon">EXCEL - INFORMATION</button>
+                </a>
+                <a href="https://www.instagram.com/decoiart.cl/">
+                <!-- Indicates a dangerous or potentially negative action -->
+                    <button type="button" class="btn btn-warning ribbon">MORE +</button>
+                </a>
+
+                <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+            </div>
+            <div class="col-md-3 ">       <!-- Standard button -->
+                <a href="{% url 'addproduct' %}">
+                    <button type="button" class="btn btn-dark ribbon">AGREGAR</button>
+                </a>
+                </a>
+                <a href="{% url 'addproduct' %}">
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-warning ribbon">Primary</button>
+                </a>
+                <a href="{% url 'addproduct' %}">
+                <!-- Indicates a successful or positive action -->
+                    <button type="button" class="btn btn-dark ribbon">Success</button>
+                </a>
+                <a href="{% url 'addproduct' %}">
+                <!-- Contextual button for informational alert messages -->
+                    <button type="button" class="btn btn-warning ribbon">Info</button>
+                </a>
+                <a href="{% url 'addproduct' %}">
+                <!-- Indicates caution should be taken with this action -->
+                    <button type="button" class="btn btn-dark ribbon">Warning</button>
+                </a>
+                <a href="{% url 'addproduct' %}">
+                <!-- Indicates a dangerous or potentially negative action -->
+                    <button type="button" class="btn btn-warning ribbon">Danger</button>
+                </a>
+
+                <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+            </div>
+
+            <div class="col-md-2 pull-right">       <!-- Standard button -->
+                <a href="{% url 'addproduct' %}">
+                    <button type="button" class="btn btn-dark  ribbon">Default</button>
+                </a>
+
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <a href="{% url 'addproduct' %}">
+                    <button type="button" class="btn btn-warning ribbon">Primary</button>
+                </a>
+
+                <!-- Indicates a successful or positive action -->
+                <a href="{% url 'addproduct' %}">
+                    <button type="button" class="btn btn-dark ribbon">Success</button>
+                </a>
+
+                <!-- Contextual button for informational alert messages -->
+                <a href="{% url 'addproduct' %}">
+                    <button type="button" class="btn btn-warning ribbon">Info</button>
+                </a>
+
+                <!-- Indicates caution should be taken with this action -->
+                <a href="{% url 'addproduct' %}">
+                    <button type="button" class="btn btn-dark ribbon">Warning</button>
+                </a>
+
+                <!-- Indicates a dangerous or potentially negative action -->
+                <a href="{% url 'addproduct' %}">
+                    <button type="button" class="btn btn-warning ribbon">Danger</button>
+                </a>
+                <br>
+            </div>
+        
+        </div>
+        
+    </div>
+
+{% endblock contenido %}

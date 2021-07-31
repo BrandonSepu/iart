@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'web/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+  
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+        
+    {% endblock css %} 
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                    <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{% static 'app/img/Brandon_sepulveda.jpg' %}" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>Brandon Sepulveda</h4>
+                                            <p>Ingeniero informatico</p>
+                                            <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                        </div>						
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{% static 'app/img/isma.jpg' %}" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>Ismael Von Dem Knesebeck</h4>
+                                            <p>Licenciado en Derecho</p>
+                                            <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                        </div>						
+                                    </div>
+                                </div>				
+                                <div class="col-sm-4">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img src="{% static 'app/img/primo.jpg' %}" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4>Matias Orellana</h4>
+                                            <p>Geologo</p>
+                                            <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                        </div>						
+                                    </div>					
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock contenido %}

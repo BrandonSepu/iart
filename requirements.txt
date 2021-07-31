@@ -1,5 +1,6 @@
 django
 pillow
+django-crispy-forms
 django-admin-interface
 django-bootstrap4
 django-widget-tweaks
