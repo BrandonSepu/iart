@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*glt2tdlm@-f@6-*m7*wk^3fw)0s+uiw&mvxng*)41pf$^m&9v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['imagineart.pythonanywhere.com']
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -135,3 +135,5 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT = Path(BASE_DIR / 'static')
