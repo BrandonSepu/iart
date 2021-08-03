@@ -14,7 +14,7 @@
             <div class="avatar bg-warning">
                 <img src="{% static 'app/img/user.png'  %}" alt="Avatar">
             </div>
-            <h2 class="text-center">Member Login</h2>   
+            <h2 class="text-center">Iniciar Sesión</h2>   
             <div class="form-group">
                 <input type="text" class="form-control" name="username" placeholder="Username" required="required">
             </div>
@@ -24,14 +24,14 @@
             </div>
             <br>        
             <div class="form-group">
-                <button type="submit" class="btn btn-warning btn-lg btn-block">Sign in</button>
+                <button type="submit" class="btn btn-warning btn-lg btn-block">Entrar</button>
             </div>
             <div class="bottom-action clearfix">
-                <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                <a href="#" class="float-right">Forgot Password?</a>
+                <label class="float-left form-check-label"><input type="checkbox"> Recordarme</label>
+                <a href="{% url 'register' %}" class="float-right">Olvidaste tu contraseña?</a>
             </div>
         </form>
-        <p class="text-center small">Don't have an account? <a href="#">Sign up here!</a></p>
+        <p class="text-center small">No tienes cuenta? <a href="{% url 'register' %}">Registrate ahora!</a></p>
     </div>
 
 {% endblock contenido %} 

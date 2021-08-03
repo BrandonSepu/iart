@@ -1,0 +1,46 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/login.css' %}">
+    {% endblock css %}
+    <!--
+        <div class="login-form">
+        <form  method="POST">
+            {% csrf_token %}
+            <div class="avatar bg-warning">
+                <img src="{% static 'app/img/pintar.png'  %}" alt="Avatar">
+            </div>
+            <h2 class="text-center">Dirección</h2>  
+            <div class="form-group">
+                <b>Comuna:</b>
+                {{formAdress.fkComuna}}
+            </div>
+            <br>   
+            <div class="form-group">
+                <b>Calle:</b>
+                {{formAdress.calle}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>#Nro:</b>
+                {{formAdress.numero}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>Comentario:</b>
+                {{formAdress.comentario}}
+            
+            </div>
+            <br> 
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning btn-lg btn-block">Confirmar Direccioón</button>
+            </div>
+        </form>
+    </div>
+
+    -->
+    
+{% endblock contenido %} 

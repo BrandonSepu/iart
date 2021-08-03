@@ -60,9 +60,11 @@
             {% if p.img %}
                 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                     <img src="{{p.img.url}}" class="card-img-top" alt="...">
-                    <div class="card-header ">{{p.description}} - {{p.ancho}}cm x {{p.largo}}cm
+                    <div class="card-header ">
+                        {{p.description}}
                     </div>
                     <div class="card-body">
+                        Tamaño : {{p.ancho}}cm x {{p.largo}}cm
                         <h5 class="card-title ">{{p.type.nomType}} - ${{p.price | intcomma}}</h5>
                         <p class="card-text bg-warning">{{p.status.nomStatus}}</p>
                     </div>

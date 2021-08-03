@@ -40,13 +40,13 @@
                 <!--<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">-->
             </div>        
             <div class="form-group">
-                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                <label class="form-check-label"><input type="checkbox" required="required"> Acepto los <a href="{% url 'terms' %}">Terminos y </a> &amp; <a href="{% url 'terms' %}">Politica de privacidad</a></label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-warning btn-lg btn-block">Register Now</button>
+                <button type="submit" class="btn btn-warning btn-lg btn-block">Registrar Cuenta</button>
             </div>
         </form>
-        <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+        <div class="text-center">Tienes una cuenta? <a href="{% url 'login' %}">Inicia Sesión</a></div>
     </div>
 
 {% endblock contenido %} 

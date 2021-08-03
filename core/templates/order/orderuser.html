@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% extends 'web/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/login.css' %}">
+    {% endblock css %}
+
+    <div class="login-form">
+        <form  method="POST">
+            {% csrf_token %} 
+            <div class="avatar bg-warning">
+                <img src="{% static 'app/img/pintar.png'  %}" alt="Avatar">
+            </div>
+            <h2 class="text-center">Fabrica tu Cuadro!</h2>
+            <div class="form-group">
+                <b>*Tipo Producto:</b>
+                {{formOrder.type}}
+            </div>
+            <br>   
+            <div class="form-group">
+                <b>*Tu Nombre:</b>
+                {{formOrder.Nombre}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>*Nro Contacto:</b>
+                {{formOrder.nro_contacto}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>@Instagram:</b>
+                {{formOrder.instagram}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b class="text-center bg-warning">*Puedes agregar el link de la imagen o subirla</b>
+                <b>link de imagen:</b>
+                {{formOrder.imagen_link}}
+            
+                <b>Subir imagen:</b>
+                {{formOrder.img}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>*Ancho (cm):</b>
+                {{formOrder.ancho}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>*largo (cm):</b>
+                {{formOrder.largo}}
+            </div>
+            <hr>
+            <h2 class="text-center">Dirección de Envío</h2> 
+            <div class="form-group">
+                <b>*Comuna:</b>
+                {{formOrder.fkComuna}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>*Calle:</b>
+                {{formOrder.calle}}
+            </div> 
+            <br> 
+            <div class="form-group">
+                <b>*#Numero:</b>
+                {{formOrder.numero}}
+            </div>
+            <br> 
+            <div class="form-group">
+                <b>Comentario:</b>
+                {{formOrder.comentario}}
+            </div>
+            <hr>
+                <div class="form-group">
+                    <b>Valor: 22.0000</b>
+
+                </div>
+            <hr>
+            <div class="text-center">
+                <button type="submit" class="btn btn-warning btn-lg btn-block">Confirmar Pedido</button>
+            </div>
+            <!--<div class="bottom-action clearfix">
+                <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                <a href="#" class="float-right">Forgot Password?</a>
+            </div>-->
+        </form>
+    </div>
+
+{% endblock contenido %} 

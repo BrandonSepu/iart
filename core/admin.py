@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import usercontact, newProduct, statusProduct, typeProduct
+from .models import usercontact, newProduct, statusProduct, typeProduct, comuna, extraDataUser, \
+     gender, pais, region, order
 # Register your models here.
 
 class userscontact(admin.ModelAdmin):
@@ -24,3 +25,9 @@ admin.site.register(usercontact, userscontact)
 admin.site.register(newProduct, nProduct)
 admin.site.register(typeProduct, tProduct)
 admin.site.register(statusProduct, sProduct)
+admin.site.register(comuna)
+admin.site.register(extraDataUser)
+admin.site.register(gender)
+admin.site.register(pais)
+admin.site.register(region)
+admin.site.register(order)

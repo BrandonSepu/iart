@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import usercontact , newProduct
-from .forms import contactForm, addProduct, CustomUserCreationForm, User
+from .models import usercontact , newProduct, order
+from .forms import contactForm, addProduct, CustomUserCreationForm, User, addOrder, moreData #, addAdress
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 
@@ -23,6 +23,9 @@ def equipo(request): #EQUIPO IART
 def profile(request): #PROFILE
     return render(request, 'web/profile.html')
 
+def terms(request): #PROFILE
+    return render(request, 'web/terms.html')
+
 def contact(request): #CONTACTO
 
     msnform = contactForm()
@@ -41,6 +44,25 @@ def contact(request): #CONTACTO
         
 
     return render(request, 'web/contact.html',  data)
+
+def trabajo(request): #TRABAJA CON NOSOTROS
+
+    msnform = contactForm()
+    data = {'cform' : msnform}
+    
+    if request.method == 'POST':
+        msnform = contactForm(data = request.POST) 
+        if msnform.is_valid():
+            msnform.save()
+        else:
+            data["cform"] = msnform;
+        
+        print("Mensaje enviado Correctamente")
+    else:
+        print("No se puedo enviar el mensaje, revisa los datos")
+        
+
+    return render(request, 'web/trabajo.html',  data)
 
 def contactcrud(request): #CONTACT CRUD
 
@@ -183,6 +205,7 @@ def deleteProduct(request, idProduct): #DELATE PRODUCT
 
 @permission_required('core.change_newproduct')
 def editProduct(request, idProduct): #EDIT PRODUCT
+
     eproduct = newProduct.objects.get(id=idProduct)
     data = {
     'proForm': addProduct(instance=eproduct) 
@@ -197,3 +220,49 @@ def editProduct(request, idProduct): #EDIT PRODUCT
             data["proForm"] = formulario_edit;
 
     return render(request, 'product/addproduct.html', data)
+
+'''def adressOrder(request): #DIRECCION DEL PEDIDO
+
+    data = {
+        'formAdress' : addAdress()
+    }
+    formulario = addAdress(data=request.POST)
+    if request.method == 'POST':
+        if formulario.is_valid():
+            formulario.save()
+            print("te has registrado correctamente")
+            return redirect('orderUser')
+        else:
+            data['formAdress'] = formulario
+    else:
+        print('error en el formulario')
+
+    return render(request, 'order/adress.html', data)
+'''
+def orderUser(request): #ORDEN DE PEDIDO
+
+    data = {
+        'formOrder' : addOrder()
+    }
+    formulario = addOrder(data=request.POST)
+    if request.method == 'POST':
+        if formulario.is_valid():
+            formulario.save()
+            print("te has registrado correctamente")
+            return redirect('index')
+        else:
+            data['formOrder'] = formulario
+    else:
+        print('error en el formulario')
+
+    return render(request, 'order/orderuser.html', data)
+
+def orderCrud(request):
+    
+    orderUser = order.objects.all()
+
+    data = {
+        'entity' : orderUser
+    }
+
+    return render(request, 'order/ordercrud.html', data)
