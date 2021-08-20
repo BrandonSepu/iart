@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*glt2tdlm@-f@6-*m7*wk^3fw)0s+uiw&mvxng*)41pf$^m&9v
 DEBUG = True
 
 ALLOWED_HOSTS = ['imagineart.pythonanywhere.com']
-#ALLOWED_HOSTS = ['127.0.0.1:8000', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1:8000', 'localhost', '127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -58,11 +58,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'iartWeb.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.carprocess.total_carrito',
             ],
         },
     },
@@ -132,7 +133,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

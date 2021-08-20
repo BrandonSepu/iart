@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'web/base.html' %}
+{% load static %}
+{% block contenido %}
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    {% endblock css %}
+    {%load humanize%}
+    {% include "product/carrito.html" %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title-header text-center">
+                <hr>
+                <h4>Productos</h4>
+            </div>
+        </div>
+    </div>
+    <div class="card-deck center">
+        {% for p in entity %}
+            {% if p.img %}
+                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                    <img src="{{p.img.url}}" class="card-img-top" alt="{{p.description}}">
+                    <div class="card-header ">
+                        {{p.description}}
+                    </div>
+                    <div class="card-body">
+                        Tamaño : {{p.ancho}}cm x {{p.largo}}cm
+                        <h5 class="card-title ">{{p.type.nomType}} - ${{p.price | intcomma}}</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="{% url 'addpr' p.id %}" class="btn btn-warning">Agregar al carrito</a>
+                    </div>
+                </div>
+            {% endif%}
+        {% endfor %}
+    </div>
+    
+    
+
+{% endblock contenido %} 
+        
+        
+

@@ -1,5 +1,7 @@
+from core.carrito import Carrito
 from django.shortcuts import render, redirect
 from .models import usercontact , newProduct, order
+from .carrito import Carrito
 from .forms import contactForm, addProduct, CustomUserCreationForm, User, addOrder, moreData #, addAdress
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
@@ -13,6 +15,43 @@ def index(request): #WEB INDEX
         'entity' : products
     }
     return render(request, 'web/index.html', data)
+
+
+def product(request): #PRODUCT CARRITO
+
+    products = newProduct.objects.all()
+    data = {
+        'entity' : products
+    }
+    return render(request, 'product/product.html', data)
+
+def addpr(request, prid): #CARRITO AGREGAR
+    carrito = Carrito(request)
+    producto = newProduct.objects.get(id = prid)
+    carrito.add(producto)
+    return redirect('product')
+
+def delpr(request, prid): #CARRITO ELIMINAR
+    carrito = Carrito(request)
+    product = newProduct.objects.get(id = prid)
+    carrito.delete(product)
+    return redirect('product')
+
+def subpr(request, prid): #CARRITO RESTAR
+    carrito = Carrito(request)
+    product = newProduct.objects.get(id = prid)
+    carrito.sub(product)
+    return redirect('product')
+
+def clspr(request): #CARRITO LIMPIAR
+    carrito = Carrito(request)
+    carrito.clear()
+    return redirect('product')
+
+def carrito(request): #CARRITO html
+    return render(request, 'product/carrito.html')
+
+
 @login_required
 def iart_admin(request): #WEB ADMIN
     return render(request, 'web/admin.html')
@@ -94,7 +133,7 @@ def editContact(request, idContact): #EDIT CONTACT
     'cform': contactForm(instance=econtact) 
     }
     if request.method == 'POST':
-        formulario_edit = contactForm(data=request.POST, instance=eproduct)
+        formulario_edit = contactForm(data=request.POST, instance=econtact)
         if formulario_edit.is_valid:
             formulario_edit.save()
             print("Producto editado correctamente")
@@ -239,26 +278,29 @@ def editProduct(request, idProduct): #EDIT PRODUCT
 
     return render(request, 'order/adress.html', data)
 '''
-def orderUser(request): #ORDEN DE PEDIDO
+
+def orderUser(request): #AGREGAR ORDEN
+
+    orderUser = addOrder()
 
     data = {
-        'formOrder' : addOrder()
+        'entity' : orderUser
     }
-    formulario = addOrder(data=request.POST)
+    orderUser = addOrder(request.POST, files = request.FILES)
     if request.method == 'POST':
-        if formulario.is_valid():
-            formulario.save()
+        if orderUser.is_valid():
+            orderUser.save()
             print("te has registrado correctamente")
             return redirect('index')
         else:
-            data['formOrder'] = formulario
+            data['entity'] = orderUser
     else:
         print('error en el formulario')
 
     return render(request, 'order/orderuser.html', data)
 
 def orderCrud(request):
-    
+
     orderUser = order.objects.all()
 
     data = {
@@ -266,3 +308,33 @@ def orderCrud(request):
     }
 
     return render(request, 'order/ordercrud.html', data)
+
+@permission_required('core.delete_order')
+def deleteOrder(request, idOrder): #DELATE ORDER
+
+    orderuser = order.objects.get(id=idOrder)
+    try:
+        order.delete(orderuser)
+        print("Eliminado Correctamente")   
+    except:
+        print('No se puedo eliminar, revisa los datos')
+        
+    return redirect('orderCrud')
+
+@permission_required('core.change_order')
+def editOrder(request, idOrder): #EDIT ORDER
+
+    orderuser = order.objects.get(id=idOrder)
+    data = {
+    'entity': addOrder(instance=orderuser) 
+    }
+    if request.method == 'POST':
+        formulario_edit = addOrder(data=request.POST, instance=orderuser, files = request.FILES)
+        if formulario_edit.is_valid:
+            formulario_edit.save()
+            print("Producto editado correctamente")
+            return redirect('orderCrud')
+        else:
+            data["entity"] = formulario_edit;
+
+    return render(request, 'order/orderuser.html', data)

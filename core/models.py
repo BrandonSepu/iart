@@ -15,16 +15,23 @@ class usercontact(models.Model):
         return self.nameContact
 
 
-
 class typeProduct (models.Model) :
     nomType = models.CharField( max_length = 50)
     descriptionType = models.TextField(max_length=400)
     def __str__(self):
         return self.nomType
 
+class sizeProduct (models.Model):
+    size = models.CharField(max_length = 20)
+    price = models.IntegerField()
+
+    def __str__(self):
+        cadena=self.size+", $"+str(self.price)
+        return cadena
+
 class statusProduct (models.Model) :
-    nomStatus = models.CharField( max_length = 20)
-    descriptionStatus = models.TextField(max_length=400)
+    nomStatus = models.CharField( max_length = 20, blank=True)
+    descriptionStatus = models.TextField(max_length=400, blank=True)
     def __str__(self):
         return self.nomStatus    
 
@@ -100,6 +107,7 @@ class extraDataUser(models.Model):
 '''
 class order(models.Model):
     
+    status = models.ForeignKey(statusProduct, null=True ,blank=True, on_delete=models.CASCADE)
     fkComuna = models.ForeignKey(comuna, on_delete=models.CASCADE)
     calle = models.CharField(max_length=50)
     numero = models.IntegerField()
@@ -110,10 +118,9 @@ class order(models.Model):
     imagen_link = models.TextField(max_length=1000, blank=True)
     img = models.ImageField(upload_to='img_pedido', null=True, blank=True)
     type = models.ForeignKey(typeProduct, on_delete=models.CASCADE)
-    ancho = models.IntegerField()
-    largo = models.IntegerField()
+    size = models.ForeignKey(sizeProduct, on_delete=models.CASCADE, blank=True)
+    othersize = models.CharField(blank=True, max_length=20)
 
-    
     def __str__(self):
         return self.Nombre
 

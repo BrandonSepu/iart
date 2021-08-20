@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import usercontact, newProduct, statusProduct, typeProduct, comuna, extraDataUser, \
-     gender, pais, region, order
+     gender, pais, region, sizeProduct ,order
 # Register your models here.
 
 class userscontact(admin.ModelAdmin):
@@ -31,3 +31,4 @@ admin.site.register(gender)
 admin.site.register(pais)
 admin.site.register(region)
 admin.site.register(order)
+admin.site.register(sizeProduct)

@@ -8,14 +8,14 @@
     <link rel="icon" type="text/css" href="{% static 'app/img/IART_LOGO_WEB.png' %}">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'app/css/footer.css' %}">
+    
     {% block css %}
             
     {% endblock css %}
-    
+    <link rel="stylesheet" href="{% static 'app/css/footer.css' %}">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
             <img src="{% static 'app/img/IART_LOGO_WEB_opt.png'%}" alt="logo iart" width="40" height="40" class="d-inline-block align-text">
@@ -30,10 +30,7 @@
                         <a class="nav-link active" href="{% url 'index' %}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Galeria de Trabajos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Productos en stock</a>
+                        <a class="nav-link" href="{% url 'product' %}">Galeria de Trabajos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'orderUser' %}">Fabrica tu Cuadro</a>
@@ -42,8 +39,7 @@
                         <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
                     </li>
                 </ul>
-            </div>
-            
+            </div> 
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -66,14 +62,11 @@
                     </li>
                 {% endif %}
             </ul>
-            
         </div>
     </nav>
-    
     {% block contenido %}
 
     {% endblock contenido %}
-
      <!-- Footer -->
     <footer class="site-footer bg-dark">
         <div class="container">
@@ -130,56 +123,3 @@
     -->
   </body>
 </html>
-
-<!--<!DOCTYPE html>
-<html lang="es">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <div class="logo">
-                    <a href="{% url 'index' %}" >  <img src="{% static 'app/img/IART_LOGO_WEB.png'  %}" alt="Home" width="50px" height="50px"></a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#"> galaeria of work </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#"> purchase stock </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'orderUser' %}"> manufacture </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'contact' %}"> Contact </a>
-                        </li>
-                        
-                        {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'profile' %}"> Mi Cuenta: @{{ user.username }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'logout' %}">Salir</a>
-                            </li>
-                            {%if user.username == 'brandworkout' or user.username == 'imagineart'%}
-                                <li class="nav-item">
-                                    <a class="nav-link active bg-warning" href="{% url 'iart_admin' %}"> Admin </a>
-                                </li>
-                            {%endif%}
-                        {%else%}
-                            <li class="nav-item">
-                                <a class="nav-link active " href="{% url 'register' %}"> Register </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active " href="{% url 'login' %}"> login </a>
-                            </li>
-                        {% endif %}
-                        
-                    </ul>
-                    
-                </div>
-            </div>
-        </nav>
-</html>-->

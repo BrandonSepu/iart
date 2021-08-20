@@ -48,25 +48,27 @@
         <div class="row mt-5">
             <div class="col-md-12">
                 <div class="title-header text-center">
-                    <h4>Manufacture</h4>
+                    <h4>Fabricados</h4>
                 </div>
             </div>
         </div>
 	</div>
     <br>
     {%load humanize%}
-    <div class="card-deck">
+    <div class="card-deck center">
         {% for p in entity %}
             {% if p.img %}
                 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <img src="{{p.img.url}}" class="card-img-top" alt="...">
+                    <img src="{{p.img.url}}" class="card-img-top" alt="{{p.description}}">
                     <div class="card-header ">
                         {{p.description}}
                     </div>
                     <div class="card-body">
                         Tamaño : {{p.ancho}}cm x {{p.largo}}cm
                         <h5 class="card-title ">{{p.type.nomType}} - ${{p.price | intcomma}}</h5>
-                        <p class="card-text bg-warning">{{p.status.nomStatus}}</p>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="{% url 'addpr' p.id %}" class="btn btn-warning">Agregar al carrito</a>
                     </div>
                 </div>
             {% endif%}

@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="{% static 'app/css/login.css' %}">
     {% endblock css %}
 
-    <div class="login-form">
-        <form  method="POST">
+    <div class="login-form" enctype="multipart/form-data">
+        <form  method="POST" enctype="multipart/form-data">
             {% csrf_token %} 
             <div class="avatar bg-warning">
                 <img src="{% static 'app/img/pintar.png'  %}" alt="Avatar">
@@ -17,68 +17,64 @@
             <h2 class="text-center">Fabrica tu Cuadro!</h2>
             <div class="form-group">
                 <b>*Tipo Producto:</b>
-                {{formOrder.type}}
+                {{entity.type}}
             </div>
-            <br>   
+            <br> 
+            <div class="form-group text-center">
+                <b class="bg-dark">- contacto -</b>
+            </div>  
             <div class="form-group">
                 <b>*Tu Nombre:</b>
-                {{formOrder.Nombre}}
+                {{entity.Nombre}}
             </div>
             <br> 
             <div class="form-group">
                 <b>*Nro Contacto:</b>
-                {{formOrder.nro_contacto}}
+                {{entity.nro_contacto}}
             </div>
             <br> 
             <div class="form-group">
                 <b>@Instagram:</b>
-                {{formOrder.instagram}}
+                {{entity.instagram}}
             </div>
-            <br> 
+            <br>
+            <div class="form-group text-center">
+                <b class="bg-dark">- imagen -</b>
+            </div>
             <div class="form-group">
                 <b class="text-center bg-warning">*Puedes agregar el link de la imagen o subirla</b>
                 <b>link de imagen:</b>
-                {{formOrder.imagen_link}}
+                {{entity.imagen_link}}
             
                 <b>Subir imagen:</b>
-                {{formOrder.img}}
+                {{entity.img}}
             </div>
             <br> 
             <div class="form-group">
-                <b>*Ancho (cm):</b>
-                {{formOrder.ancho}}
-            </div>
-            <br> 
-            <div class="form-group">
-                <b>*largo (cm):</b>
-                {{formOrder.largo}}
+                <b>*Tamaño (cm):</b>
+                {{entity.size}}
             </div>
             <hr>
             <h2 class="text-center">Dirección de Envío</h2> 
             <div class="form-group">
                 <b>*Comuna:</b>
-                {{formOrder.fkComuna}}
+                {{entity.fkComuna}}
             </div>
             <br> 
             <div class="form-group">
                 <b>*Calle:</b>
-                {{formOrder.calle}}
+                {{entity.calle}}
             </div> 
             <br> 
             <div class="form-group">
                 <b>*#Numero:</b>
-                {{formOrder.numero}}
+                {{entity.numero}}
             </div>
             <br> 
             <div class="form-group">
                 <b>Comentario:</b>
-                {{formOrder.comentario}}
+                {{entity.comentario}}
             </div>
-            <hr>
-                <div class="form-group">
-                    <b>Valor: 22.0000</b>
-
-                </div>
             <hr>
             <div class="text-center">
                 <button type="submit" class="btn btn-warning btn-lg btn-block">Confirmar Pedido</button>
